@@ -175,7 +175,24 @@ int main(void) {
         }
 
     }
+
+    for(int l = 0; l < rows; l++) {
+
+        for(int m = 0; m < cols ; m++) {
+
+            free(strandsGrid[l][m]);
+
+        }
+
+    }
+
+    for(int n = 0; n < rows; n++) {
+
+        free(strandsGrid[n]);
+
+    }
     
+    free(strandsGrid);
     return 0;
   
 }
