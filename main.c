@@ -20,6 +20,31 @@ typedef struct dllnode {
 
 } dllnode;
 
+dllnode* getStartNode(dllnode* currentNode) {
+
+    while(currentNode->prev != NULL) {
+        
+        currentNode = currentNode->prev;
+        
+    }
+    return currentNode;
+    
+}
+
+void printWord(dllnode* startNode) {
+    
+    dllnode* currentNode = startNode;
+    while(currentNode != NULL) {
+        
+        printf("%c", currentNode->ch);
+        currentNode = currentNode->next;
+        
+    }
+    printf("\n");
+    
+}
+
+
 
 int main(void) {
 
