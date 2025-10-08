@@ -25,6 +25,23 @@ int main(void) {
 
     int numRows, numCols;
     dllnode*** strandsGrid;
+
+    scanf("%d %d", &numRows, &numCols);
+    strandsGrid = (dllnode***)malloc(numRows * sizeof(dllnode**));
+    for(int a = 0; a < numRows; a++) {
+
+        strandsGrid[a] = (dllnode**)malloc(numCols * sizeof(dllnode*));
+        
+    }
+    for(int a = 0; a < numRows; a++) {
+        
+        for(int b = 0; b < numCols; b++) {
+
+            strandsGrid[a][b] = (dllnode*)malloc(sizeof(dllnode));
+            
+        }
+        
+    }
     
     return 0;
   
