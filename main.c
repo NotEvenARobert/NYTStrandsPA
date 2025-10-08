@@ -68,59 +68,78 @@ int main(void) {
         
     }
 
-for(int d = 0; d < numRows; d++) {
-    
-    for(int e = 0; e < numCols; e++) {
+    for(int d = 0; d < numRows; d++) {
         
-        scanf(" %c", &strandsGrid[d][e]->ch);
-        
-    }
-    
-}
-
-for(int g = 0; g < numRows; g++) {
-    
-    for(int h = 0; h < numCols; h++) {
-        
-        int nextDirection;
-        scanf("%d", &nextDirection);
-        if(nextDirection == NULLPTR) {
-         
-            strandsGrid[g][h]->next = NULL;
+        for(int e = 0; e < numCols; e++) {
             
-        } else {
-
-            int nextRow = g + DR[nextDirection];
-            int nextCol = h + DC[nextDirection];
-            strandsGrid[g][h]->next = strandsGrid[nextRow][nextCol];
+            scanf(" %c", &strandsGrid[d][e]->ch);
             
         }
         
     }
     
-}
-
-for(int i = 0; i < numRows; i++) {
+    for(int g = 0; g < numRows; g++) {
+        
+        for(int h = 0; h < numCols; h++) {
+            
+            int nextDirection;
+            scanf("%d", &nextDirection);
+            if(nextDirection == NULLPTR) {
+             
+                strandsGrid[g][h]->next = NULL;
+                
+            } else {
     
-    for(int j = 0; j < numCols; j++) {
-
-        int prevDirection;
-        scanf("%d", &prevDirection);
-        if(prevDirection == NULLPTR) {
-            
-            strandsGrid[i][j]->prev = NULL;
-            
-        } else {
-
-            int prevRow = i + DR[prevDirection];
-            int prevCol = j + DC[prevDirection];
-            strandsGrid[i][j]->prev = strandsGrid[prevRow][prevCol];
+                int nextRow = g + DR[nextDirection];
+                int nextCol = h + DC[nextDirection];
+                strandsGrid[g][h]->next = strandsGrid[nextRow][nextCol];
+                
+            }
             
         }
         
     }
     
-}
+    for(int i = 0; i < numRows; i++) {
+        
+        for(int j = 0; j < numCols; j++) {
+    
+            int prevDirection;
+            scanf("%d", &prevDirection);
+            if(prevDirection == NULLPTR) {
+                
+                strandsGrid[i][j]->prev = NULL;
+                
+            } else {
+    
+                int prevRow = i + DR[prevDirection];
+                int prevCol = j + DC[prevDirection];
+                strandsGrid[i][j]->prev = strandsGrid[prevRow][prevCol];
+                
+            }
+            
+        }
+        
+    }
+
+    int numQueries;
+    scanf("%d", &numQueries);
+    for(int k = 0; k < numQueries; k++) {
+    
+        int queryType;
+        scanf("%d", &queryType);
+        if(queryType == 1) {
+            
+            int row, col;
+            scanf("%d %d", &row, &col);
+
+            dllnode* givenNode = strandsGrid[row][col];
+            dllnode* startNode = getStartNode(givenNode);
+            printWord(startNode);
+            
+        }
+
+    }
     
     return 0;
   
