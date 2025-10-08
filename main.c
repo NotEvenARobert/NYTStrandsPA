@@ -59,6 +59,13 @@ void reverseWord(dllnode* givenNode) {
     
 }
 
+void concatenateWords(dllnode* endNode1, dllnode* startNode2) {
+    
+    endNode1->next = startNode2;
+    startNode2->prev = endNode1;
+    
+}
+
 int main(void) {
 
     int numRows, numCols;
@@ -155,6 +162,15 @@ int main(void) {
             int row, col;
             scanf("%d %d", &row, &col);
             reverseWord(strandsGrid[row][col]);
+            
+        } else if(queryType == 3) {
+            
+            int row1, col1, row2, col2;
+            scanf("%d %d %d %d", &row1, &col1, &row2, &col2);
+    
+            dllnode* endNode = strandsGrid[row1][col1];
+            dllnode* startNode = strandsGrid[row2][col2];
+            concatenateWords(endNode, startNode);
             
         }
 
