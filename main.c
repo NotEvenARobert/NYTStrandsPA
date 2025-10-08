@@ -47,7 +47,7 @@ for(int d = 0; d < numRows; d++) {
     
     for(int e = 0; e < numCols; e++) {
         
-        scanf(" %c", &strandsGrid[e][e]->ch);
+        scanf(" %c", &strandsGrid[d][e]->ch);
         
     }
     
