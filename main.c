@@ -44,7 +44,20 @@ void printWord(dllnode* startNode) {
     
 }
 
-
+void reverseWord(dllnode* givenNode) {
+    
+    dllnode* currentNode = getStartNode(givenNode);
+    dllnode* tempNode = NULL;
+    while(currentNode != NULL) {
+        
+        tempNode = currentNode->prev;
+        currentNode->prev = currentNode->next;
+        currentNode->next = tempNode;
+        currentNode = currentNode->prev;
+        
+    }
+    
+}
 
 int main(void) {
 
@@ -136,6 +149,12 @@ int main(void) {
             dllnode* givenNode = strandsGrid[row][col];
             dllnode* startNode = getStartNode(givenNode);
             printWord(startNode);
+            
+        } else if(queryType == 2) {
+            
+            int row, col;
+            scanf("%d %d", &row, &col);
+            reverseWord(strandsGrid[row][col]);
             
         }
 
