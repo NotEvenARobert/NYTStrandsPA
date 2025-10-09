@@ -97,6 +97,8 @@ int main(void) {
         }
         
     }
+
+    // Skip transient for loop variable "f" for now cuz why not
     
     for(int g = 0; g < numRows; g++) {
         
@@ -176,9 +178,9 @@ int main(void) {
 
     }
 
-    for(int l = 0; l < rows; l++) {
+    for(int l = 0; l < numRows; l++) {
 
-        for(int m = 0; m < cols ; m++) {
+        for(int m = 0; m < numCols ; m++) {
 
             free(strandsGrid[l][m]);
 
@@ -186,7 +188,7 @@ int main(void) {
 
     }
 
-    for(int n = 0; n < rows; n++) {
+    for(int n = 0; n < numRows; n++) {
 
         free(strandsGrid[n]);
 
